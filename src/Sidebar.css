@@ -1,12 +1,52 @@
 .sidebar {
   flex: 0.2;
-
+  min-width: 200px;
 }
 
 .sidebar > hr {
-    height: 1px;
-    border: 0;
-    background-color: lightgray;
-    margin-top: 10px;
-    margin-bottom: 10px;
+  height: 1px;
+  border: 0;
+  background-color: lightgray;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Tablets: shrink to an icon-only rail */
+@media (max-width: 1024px) {
+  .sidebar {
+    flex: none;
+    width: 72px;
+    min-width: 0;
+  }
+  .sidebar .sidebarRow__title {   /* use the class on your label text */
+    display: none;
+  }
+}
+
+/* Phones: a slide-in drawer that is hidden by default */
+@media (max-width: 640px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 240px;
+    background: white;
+    z-index: 100;
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    overflow-y: auto;
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .sidebar .sidebarRow__title {
+    display: inline;              /* show labels again inside the drawer */
+  }
+}
+
+.header__menu {
+  cursor: pointer;
+  padding: 8px;
+  box-sizing: content-box;
 }

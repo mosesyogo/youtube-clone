@@ -9,14 +9,14 @@ import Avatar from '@mui/material/Avatar';
 import { Link } from 'react-router-dom';
 
 
-function Header() {
-    const[inputSearch, setInputSearch] = useState('');
+function Header({ onMenuClick }) {
+    const [inputSearch, setInputSearch] = useState('');
 
   return (
     <div className='header'>
         <div className='header__left'>
 
-        <MenuIcon/>
+        <MenuIcon className='header__menu' onClick={onMenuClick} />
         <Link to='/'>
         <img 
         className='header__logo'
@@ -31,9 +31,9 @@ function Header() {
         </Link>
         </div>
         <div className='header__icons'>
-        <VideoCallIcon className='header__icon'/>
-        <AppsIcon className='header__icon'/>
-        <NotificationsIcon className='header__icon'/>
+       <VideoCallIcon className="header__icon header__hideMobile" />
+       <AppsIcon className="header__icon header__hideMobile" />
+       <NotificationsIcon className='header__icon'/>
         <Avatar src="https://yt3.ggpht.com/KGz5AbTpZxnLzfI3RjMIISbTzggeue4tssv2rOXRrmYVoYLrPfoxVt4br2iQrNzGvrQpowC4X8s=s600-c-k-c0x00ffffff-no-rj-rp-mo"
         alt=""
          />

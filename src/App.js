@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './Header'
 import Sidebar from './Sidebar'
 import RecommendedVideos from './RecommendedVideos';
@@ -7,16 +7,26 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
 function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const closeSidebar = () => setSidebarOpen(false)
+
   return (
     <div className="app">
       <Router>
-        <Header />
+        <Header onMenuClick={() => setSidebarOpen(open => !open)} />
+
+        {/* dark backdrop behind the drawer on phones; tap it to close */}
+        <div
+          className={`app__backdrop ${sidebarOpen ? 'show' : ''}`}
+          onClick={closeSidebar}
+        />
+
         <Routes>
           <Route
             path='/search/:searchTerm'
             element={
               <div className='app__page'>
-                <Sidebar />
+                <Sidebar open={sidebarOpen} onClose={closeSidebar} />
                 <SearchPage />
               </div>
             }
@@ -26,7 +36,7 @@ function App() {
             path='/'
             element={
               <div className='app__page'>
-                <Sidebar />
+                <Sidebar open={sidebarOpen} onClose={closeSidebar} />
                 <RecommendedVideos />
               </div>
             }

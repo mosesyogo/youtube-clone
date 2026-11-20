@@ -11,9 +11,9 @@ import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import ThumbUpAltOutlinedIcon from '@mui/icons-material/ThumbUpAltOutlined';
 import ExpandMoreOutlinedIcon from '@mui/icons-material/ExpandMoreOutlined';
 
-function Sidebar() {
+function Sidebar({ open, onClose }) {
   return (
-    <div className='sidebar'>
+    <div className={`sidebar ${open ? 'open' : ''}`} onClick={onClose}>
         <SidebarRow selected Icon={HomeIcon} title='Home'/>
         <SidebarRow Icon={WhatshotIcon} title='Trending'/>
         <SidebarRow Icon={SubscriptionsIcon} title='Subscription'/>
@@ -28,5 +28,4 @@ function Sidebar() {
     </div>
   )
 }
-
 export default Sidebar

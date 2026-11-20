@@ -12,7 +12,7 @@ function RecommendedVideos() {
             views="2.3M Views"
             timestamp="3 days ago"
             channelImage="https://i.pravatar.cc/100?img=12"
-            channel="Sonny Sangha"
+            channel="Vicky Victoria"
             image="https://i.ytimg.com/vi/UaB_FtsdlYk/hqdefault.jpg"
         />
             <VideoCard

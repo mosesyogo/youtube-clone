@@ -1,48 +1,98 @@
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: white;
 }
 
 .header__logo {
-    height: 25px;
-    object-fit: contain;
-    margin-left: 20px;
-    
+  height: 25px;
+  object-fit: contain;
+  margin-left: 20px;
+  flex-shrink: 0;
 }
 
 .header__input {
-    display: flex;
-    align-items: center;
-    width: 40%;
-    border: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  max-width: 600px;
+  min-width: 0;
+  border: 1px solid lightgray;
 }
 
 .header__input > input {
-    flex: 1;
-    border: none;
-  
-    
-   
-}
-
-.header__icons {
-    display: flex;
-    align-items: center;
-}
-
-.header__icon {
-    margin-right: 8px;
+  flex: 1;
+  min-width: 0;          /* inputs have a built-in minimum width, so override it */
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 6px 8px;
 }
 
 .header__inputButton {
-    width: 50px !important;
-    background-color: #fafafa;
-    border-left: 1px solid lightgray;
-    color: gray;
+  flex-shrink: 0;
+  width: 50px !important;
+  background-color: #fafafa;
+  border-left: 1px solid lightgray;
+  color: gray;
+}
+
+.header__icons {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.header__icon {
+  margin-right: 8px;
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 8px 12px;
+  }
+
+  .header__logo {
+    height: 20px;
+    margin-left: 0;
+    
+  }
+
+  .header__inputButton {
+    width: 36px !important;
+  }
+
+  /* hide the less important icons on phones */
+  .header__hideMobile {
+    display: none !important;
+  }
+}
+
+.header__menu {
+  cursor: pointer;
+  padding: 8px;
+  box-sizing: content-box;
+ 
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  gap: 4px;
+}
+
+.header__left a {
+  display: flex;
+  align-items: center;
+}
+
+.header__logo {
+  display: block;     /* removes the baseline gap under the image */
 }

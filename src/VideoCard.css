@@ -1,21 +1,26 @@
+
 .videoCard {
-    margin-bottom: 40px;
-    width: 270px;
+    margin-bottom: 20px;
+    min-width: 0;                 /* stops long titles from stretching the card */
 }
 
 .videoCard__thumbnail {
-    height: 140px;
-    width: 250px;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
 }
 
 .videoCard__info {
     display: flex;
     margin-top: 10px;
-    padding-right: 30px;
+    padding-right: 10px;
 }
 
 .videoCard__text {
     margin-left: 15px;
+    min-width: 0;
 }
 
 .videoCard__text > h4 {
@@ -31,4 +36,11 @@
 .videoAvatar {
     height: 30px !important;
     width: 30px !important;
+    flex-shrink: 0;               /* keeps the avatar round when titles are long */
+}
+
+@media (max-width: 640px) {
+    .recommendedVideos {
+        padding: 16px 12px 0;
+    }
 }

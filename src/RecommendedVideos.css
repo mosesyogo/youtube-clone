@@ -1,9 +1,9 @@
 .recommendedVideos {
-    flex: 0.8;
+    flex: 1;
+    min-width: 0;                 /* lets it shrink beside the sidebar */
     background-color: #f9f9f9;
     padding: 20px 40px;
     padding-bottom: 0;
-
 }
 
 .recommendedVideos > h2 {
@@ -12,7 +12,13 @@
 }
 
 .recommendedVideos__videos {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px 20px;
 }
 
+@media (max-width: 640px) {
+    .recommendedVideos {
+        padding: 16px 12px 0;
+    }
+}

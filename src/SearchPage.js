@@ -30,7 +30,7 @@ function SearchPage() {
          subs="660K"
          description="Learn how to become a web developer in just 10 minutes with HTML, CSS and JavaScript."
          timestamp="3 days ago"
-         channel="Sonny Sangha"
+         channel="Vicky Victoria"
          title="Become a Web Developer in 10 minutes | 2019/2020"
          image="https://i.ytimg.com/vi/UaB_FtsdlYk/hqdefault.jpg"
          />

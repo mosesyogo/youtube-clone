@@ -2,4 +2,35 @@
   display: flex;
   
 }
+.app__page {
+  display: flex;
+  min-width: 0;
+}
+
+/* the main content must be allowed to shrink next to the sidebar */
+.app__page > *:not(.sidebar) {
+  flex: 1;
+  min-width: 0;
+}
+
+.app__backdrop {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .app__backdrop {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 99;               /* just below the drawer's z-index: 100 */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+  }
+  .app__backdrop.show {
+    opacity: 1;
+    visibility: visible;
+  }
+}
 
